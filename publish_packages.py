@@ -14,6 +14,9 @@ def publish_package(directory):
         files = os.listdir(directory)
         for file in files:
             file_path = os.path.join(directory, file)
+            ##################
+            # need to validate
+            ##################
             with open(file_path, 'rb') as f:
                 files = {'file': f}
                 response = requests.post(url, files=files, headers=headers ,auth=("username", "password"))

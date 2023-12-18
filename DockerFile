@@ -1,0 +1,9 @@
+FROM docker:latest AS dind
+RUN apk add --no-cache \
+    python3 \
+    && pip3 install docker
+
+FROM dind
+COPY python_script.py /app/python_script.py
+WORKDIR /app
+CMD ["python3", "python_script.py"]
